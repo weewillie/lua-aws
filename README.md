@@ -3,7 +3,7 @@ lua-aws
 
 ### lua AWS REST API binding
 
-## Status of services
+## Status of services (tested with luajit version 2.1.0-alpha only)
 
 * ec2 (partial, needs some work)
 * s3 (none)

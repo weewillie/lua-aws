@@ -2,26 +2,26 @@ local class = require ('lua-aws.class')
 local util = require ('lua-aws.util')
 local Request = require ('lua-aws.request')
 
-local get_endpoint_from_env = function ()
-	local ec2url = os.getenv('EC2_URL')
-	if not ec2url then
-		return nil
-	else
-		return ec2url:gsub('https://ec2%.', '')
-	end
-end
-local get_region_from_env = function ()
-	local ec2url = os.getenv('EC2_URL')
-	if not ec2url then
-		return nil
-	else
-		local region = false
-		ec2url:gsub('https://ec2%.(.*)%.amazonaws.com.*', function (s)
-			region = s
-		end)
-		return region
-	end
-end
+-- local get_endpoint_from_env = function ()
+-- 	local ec2url = os.getenv('EC2_URL')
+-- 	if not ec2url then
+-- 		return nil
+-- 	else
+-- 		return ec2url:gsub('https://ec2%.', '')
+-- 	end
+-- end
+-- local get_region_from_env = function ()
+-- 	local ec2url = os.getenv('EC2_URL')
+-- 	if not ec2url then
+-- 		return nil
+-- 	else
+-- 		local region = false
+-- 		ec2url:gsub('https://ec2%.(.*)%.amazonaws.com.*', function (s)
+-- 			region = s
+-- 		end)
+-- 		return region
+-- 	end
+-- end
 
 return class.AWS_API {
 	initialize = function (self, service, defs)
@@ -29,21 +29,25 @@ return class.AWS_API {
 		self._defs = defs
 		self:build_methods()
 	end,
-	version = function (self) 
-		return self._defs.apiVersion 
+	version = function (self)
+		return self._defs.apiVersion
 	end,
 	signature_version = function (self)
 		return self._defs.signatureVersion
 	end,
-	endpoint_prefix = function (self) 
-		return self._defs.endpointPrefix 
+	endpoint_prefix = function (self)
+		return self._defs.endpointPrefix
 	end,
 	endpoint = function (self)
-		local config = self:config()
-		return (self:endpoint_prefix() .. '.' .. (config.endpoint or get_endpoint_from_env()))
+		-- local config = self:config()
+		-- return (self:endpoint_prefix() .. '.' .. (config.endpoint or get_endpoint_from_env()))
+		-- force configuration of endpoint
+		return (self:endpoint_prefix() .. '.' .. (self:config().endpoint))
 	end,
 	region = function (self)
-		return self:config().region or get_region_from_env()
+		-- return self:config().region or get_region_from_env()
+		-- force configuration of region
+		return self:config().region
 	end,
 	request_format = function (self)
 		return self._defs.format

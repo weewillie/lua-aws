@@ -18,9 +18,9 @@ return class.AWS_Service {
 		util.dir((util.script_path()..'/definitions/%s*'):format(service_name)):each(function (path)
 			--print('defintion file:', path)
 			local version
-			path:gsub('[^%-]*%-([%w%-]*)%.js', function (s) 
-				version = s 
-				return s 
+			path:gsub('[^%-]*%-([%w%-]*)%.js', function (s)
+				version = s
+				return s
 			end)
 			assert(version, path .. ':invalid file name')
 			local data = util.json.decode(util.get_json_part(path))
@@ -29,6 +29,7 @@ return class.AWS_Service {
 				apis.latest = apis[version]
 			end
 		end)
+
 		assert(apis.latest, service_name .. ':no api defined.')
 		return apis
 	end,

@@ -10,6 +10,7 @@ local AWS = class.AWS {
 		--> define service
 		self.DynamoDB = require('lua-aws.services.dynamodb').new(self)
 		self.EC2 = require('lua-aws.services.ec2').new(self)
+		self.S3 = require('lua-aws.services.s3').new(self)
 		--[[
 		require('./services/autoscaling')
 		require('./services/cloudformation')
@@ -39,7 +40,7 @@ local AWS = class.AWS {
 		require('./services/storagegateway')
 		require('./services/sts')
 		require('./services/support')
-		]]--	
+		]]--
 	end,
 	config = function (self)
 		return self._config

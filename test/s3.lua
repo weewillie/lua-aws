@@ -5,6 +5,7 @@
 function tprint (tbl, indent)
   if not indent then indent = 0 end
   for k, v in pairs(tbl) do
+    print("key=" .. k)
     formatting = string.rep("  ", indent) .. k .. ": "
     if type(v) == "table" then
       print(formatting)
@@ -20,21 +21,16 @@ end
 
 local AWS = require ('lua-aws.init')
 AWS = AWS.new({
-    endpoint = 'us-east-1.amazonaws.com',
-    region = 'us-east-1',
-	accessKeyId = os.getenv('AWS_ACCESS_KEY'),
-	secretAccessKey = os.getenv('AWS_SECRET_KEY')
+  endpoint         = 'amazonaws.com',
+	accessKeyId      = os.getenv('AWS_ACCESS_KEY'),
+	secretAccessKey  = os.getenv('AWS_SECRET_KEY')
 })
 
-local res,err = AWS.EC2:api():describeInstances()
+
+local res,err = AWS.S3:api():listBuckets()
 
 if res then
-    -- tprint(res, 2)
-	--local serpent = require ('serpent')
-	--print(serpent.dump(res, { compact = false }))
-	--dump(res)
-	-- assert(res.value.DescribeInstancesResponse.xarg.xmlns == "http://ec2.amazonaws.com/doc/2013-02-01/")
-	-- assert(res.value.DescribeInstancesResponse.value.reservationSet.value.item[1].value.ownerId.value == '871570535967')
+    tprint(res, 2)
 else
 	assert(false, 'error:' .. err)
 end

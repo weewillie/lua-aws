@@ -23,7 +23,7 @@ module.exports = {
   serviceFullName: 'Amazon Simple Storage Service',
   signatureVersion: 's3',
   timestampFormat: 'rfc822',
-  xmlnamespace: 'http://s3.amazonaws.com/doc/2006-03-01/',
+  xmlnamespace: 'http\://s3.amazonaws.com/doc/2006-03-01/',
   operations: {
     abortMultipartUpload: {
       name: 'AbortMultipartUpload',
@@ -709,10 +709,10 @@ module.exports = {
                   type: 'structure',
                   xmlns: {
                     prefix: 'xsi',
-                    uri: 'http://www.w3.org/2001/XMLSchema-instance'
+                    uri: 'http\://www.w3.org/2001/XMLSchema-instance'
                   },
                   members: {
-                    'xsi:type': {
+                    'xsi\:type': {
                       attribute: true,
                       name: 'Type'
                     },
@@ -917,10 +917,10 @@ module.exports = {
                       type: 'structure',
                       xmlns: {
                         prefix: 'xsi',
-                        uri: 'http://www.w3.org/2001/XMLSchema-instance'
+                        uri: 'http\://www.w3.org/2001/XMLSchema-instance'
                       },
                       members: {
-                        'xsi:type': {
+                        'xsi\:type': {
                           attribute: true,
                           name: 'Type'
                         },
@@ -1357,10 +1357,10 @@ module.exports = {
                   type: 'structure',
                   xmlns: {
                     prefix: 'xsi',
-                    uri: 'http://www.w3.org/2001/XMLSchema-instance'
+                    uri: 'http\://www.w3.org/2001/XMLSchema-instance'
                   },
                   members: {
-                    'xsi:type': {
+                    'xsi\:type': {
                       attribute: true,
                       name: 'Type'
                     },
@@ -2037,7 +2037,7 @@ module.exports = {
                       type: 'structure',
                       xmlns: {
                         prefix: 'xsi',
-                        uri: 'http://www.w3.org/2001/XMLSchema-instance'
+                        uri: 'http\://www.w3.org/2001/XMLSchema-instance'
                       },
                       members: {
                         DisplayName: {
@@ -2049,7 +2049,7 @@ module.exports = {
                         Type: {
                           required: true,
                           attribute: true,
-                          name: 'xsi:type'
+                          name: 'xsi\:type'
                         },
                         URI: {
                         }
@@ -2289,7 +2289,7 @@ module.exports = {
                           type: 'structure',
                           xmlns: {
                             prefix: 'xsi',
-                            uri: 'http://www.w3.org/2001/XMLSchema-instance'
+                            uri: 'http\://www.w3.org/2001/XMLSchema-instance'
                           },
                           members: {
                             DisplayName: {
@@ -2301,7 +2301,7 @@ module.exports = {
                             Type: {
                               required: true,
                               attribute: true,
-                              name: 'xsi:type'
+                              name: 'xsi\:type'
                             },
                             URI: {
                             }
@@ -2768,7 +2768,7 @@ module.exports = {
                       type: 'structure',
                       xmlns: {
                         prefix: 'xsi',
-                        uri: 'http://www.w3.org/2001/XMLSchema-instance'
+                        uri: 'http\://www.w3.org/2001/XMLSchema-instance'
                       },
                       members: {
                         DisplayName: {
@@ -2780,7 +2780,7 @@ module.exports = {
                         Type: {
                           required: true,
                           attribute: true,
-                          name: 'xsi:type'
+                          name: 'xsi\:type'
                         },
                         URI: {
                         }
